@@ -5,15 +5,20 @@ class Tasks:
         self.deadline = deadline
         self.title = title
 
+
+    def __repr__(self):
+        return f"we have a tasks{self.id} at {self.deadline} with a priority of {self.priority}."
+
     
+    tasks = []
 
     def adds_tasks(id, title, priority,deadline):
-        tasks = []
 
         global tasks
         first_task = Tasks(id,title,priority,deadline)
         tasks.append(first_task)
         tasks.sort(key=lambda x: (-x.priority,-x>deadline))
+        
 
 
     def deletes_tasks(id):
